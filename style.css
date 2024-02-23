@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+:root {
+    --yellow: #aa9a0f;
+}
+header {
+    width: 100%;
+    height: 90px;
+    box-shadow: 0 0 1px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav li {
+    list-style: none;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+header nav li:hover {
+    transform: scale(1.1);
+}
+main {
+    width: 100%;
+}
+.overview {
+    width: 100%;
+    height: calc(100vh - 90px);
+    animation: fade-out linear;
+    animation-timeline: view();
+    animation-range: exit -200px;
+}
+.overview img {
+    grid: column 1/-1;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    object-fit: cover;
+    z-index: -1;
+
+    transform-origin: top;
+
+    animation: overview-img-animation linear forwards;
+    animation-timeline: view();
+    animation-range: exit -151px;
+}
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes overview-img-animation {
+    25% {
+        opacity: 1;
+    }
+    85%,
+    100% {
+        opacity: 0;
+        scale: 3;
+    }
+}
+.overview div {
+    width: 100%;
+    height: calc(100vh - 90px);
+    backdrop-filter: brightness(60%) blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.overview h1 {
+    font-size: 4rem;
+    color: white;
+}
+.overview p {
+    font-size: 2rem;
+    color: darkgray;
+}
+.overview button {
+    color: white;
+    background-color: var(--yellow);
+    border: none;
+    font-size: 1.7rem;
+    padding: 15px 40px;
+    border-radius: 15px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+.overview button:hover {
+    color: var(--yellow);
+    background-color: white;
+}
+.tours {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.filters {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.filters button {
+    color: rgb(37, 36, 36);
+    background-color: rgba(220, 220, 220, 0);
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: 1px solid black;
+    opacity: 0.7;
+    border-radius: 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+.countries {
+    margin: 0 100px;
+    border-radius: 30px;
+    background-color: #f9f9f9;
+    margin-top: 50px;
+    padding: 36px 76px 76px 76px;
+}
+.countries .info h4 {
+    width: 345px;
+    font-size: 16px;
+    opacity: 0.7;
+    font-weight: 400;
+    margin-left: 60px;
+}
+.karysel {
+    display: flex;
+    flex-wrap: wrap;
+}
+.country {
+    width: 150px;
+    height: 200px;
+    padding: 15px;
+    text-align: center;
+}
+.country img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* .scroll-watcher {
+    height: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: lime;
+    width: 100%;
+    scale: 0 1;
+    transform-origin: left;
+
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+}
+@keyframes scroll-watcher {
+    to {
+        scale: 1 1;
+    }
+} */
+
+@media (prefers-reduced-motion: no-preference) {
+    img {
+        scale: 0.8;
+        opacity: 0;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: entry;
+    }
+    @keyframes fade-in {
+        to {
+            scale: 1;
+            opacity: 1;
+        }
+    }
+}
+.top {
+    margin: 70px;
+}
+.top p {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    opacity: 0.7;
+    font-size: 1.2rem;
+}
+.bestTours p {
+    font-size: 1.05rem;
+    margin: 10px 0;
+}
+.bestTours {
+    margin: 50px 138px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.bestTours div {
+    border-radius: 15px;
+    width: 300px;
+    margin: 15px;
+    padding: 10px;
+    box-shadow: 0 0 1px black;
+}
+.bestTours div img {
+    width: 100%;
+    border-radius: 15px;
+}
+.bestTours .info {
+    border: none;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    box-shadow: none;
+}
+.bestTours .buy {
+    margin: 0px 0px -10px -10px;
+    background-color: cornflowerblue;
+    color: white;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border: none;
+    box-shadow: none;
+    display: none;
+}
+.bestTours:hover .buy {
+    display: block;
+    cursor: pointer;
+}
+footer {
+    width: 100%;
+    height: 90px;
+    box-shadow: 0 0 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
